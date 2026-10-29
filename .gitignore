@@ -1,0 +1,48 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Environment files - NEVER commit these (contains passwords!)
+.env
+server/.env
+*.env
+
+# Database files
+*.sqlite
+*.db
+data/
+
+# Large CSV files - no need to push to GitHub
+*.csv
+
+# Scratch/temp scripts
+scratch/
+fix_all_charts*.js
+update_db.js
+remove_margin.js
+normalize_db.js
+addDemographics.js
+check_db.js
+skew_graphs.js
+test.js

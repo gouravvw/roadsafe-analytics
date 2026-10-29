@@ -1,0 +1,52 @@
+{
+  "name": "roadsafe-analytics",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "server": "node server/index.js",
+    "dev:all": "concurrently \"npm run server\" \"npm run dev\"",
+    "build": "tsc -b && vite build",
+    "start": "node server/index.js",
+    "build:prod": "npm run build",
+    "lint": "oxlint",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@types/leaflet": "^1.9.22",
+    "autoprefixer": "^10.4.20",
+    "clsx": "^2.1.1",
+    "concurrently": "^10.0.5",
+    "cors": "^2.8.6",
+    "csv-parse": "^7.0.2",
+    "csv-parser": "^3.2.1",
+    "dotenv": "^18.0.4",
+    "express": "^5.2.1",
+    "leaflet": "^1.9.4",
+    "leaflet.heat": "^0.2.0",
+    "lucide-react": "^1.33.0",
+    "mongoose": "^9.10.2",
+    "multer": "^2.4.0",
+    "postcss": "^8.4.49",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "react-is": "^19.2.8",
+    "react-leaflet": "^5.0.0",
+    "react-leaflet-cluster": "^4.1.3",
+    "recharts": "^3.10.1",
+    "sqlite3": "^6.0.1",
+    "tailwind-merge": "^3.6.0",
+    "tailwindcss": "^3.4.17"
+  },
+  "devDependencies": {
+    "@types/leaflet.heat": "^0.2.5",
+    "@types/node": "^24.13.3",
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^4.3.4",
+    "oxlint": "^1.75.0",
+    "typescript": "~6.0.2",
+    "vite": "^5.4.11"
+  }
+}
