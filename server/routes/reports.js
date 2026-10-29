@@ -1,17 +1,14 @@
 import express from 'express';
-import { db } from '../db.js';
+import { Accident } from '../models/Accident.js';
 
 const router = express.Router();
 
-// GET /api/reports/export-csv - Generate CSV download dump
-router.get('/export-csv', (req, res) => {
-  db.all('SELECT * FROM accidents ORDER BY timestamp DESC', [], (err, rows) => {
-    if (err) {
-      console.error('CSV Export Error:', err);
-      return res.status(500).json({ error: 'Failed to export CSV dataset' });
-    }
+// GET /api/reports/export-csv - Generate CSV download dump from MongoDB
+router.get('/export-csv', async (req, res) => {
+  try {
+    const rows = await Accident.find({}).sort({ timestamp: -1 }).lean();
 
-    if (rows.length === 0) {
+    if (!rows || rows.length === 0) {
       return res.status(404).json({ error: 'No data available to export' });
     }
 
@@ -26,7 +23,6 @@ router.get('/export-csv', (req, res) => {
     rows.forEach(r => {
       const rowVals = headers.map(h => {
         let val = r[h] !== undefined && r[h] !== null ? String(r[h]) : '';
-        // Escape quotes if needed
         if (val.includes(',') || val.includes('"')) {
           val = `"${val.replace(/"/g, '""')}"`;
         }
@@ -38,7 +34,10 @@ router.get('/export-csv', (req, res) => {
     res.setHeader('Content-Type', 'text/csv');
     res.setHeader('Content-Disposition', 'attachment; filename="roadsafe_accident_dataset.csv"');
     res.status(200).send(csvContent);
-  });
+  } catch (err) {
+    console.error('CSV Export Error:', err);
+    res.status(500).json({ error: 'Failed to export CSV dataset' });
+  }
 });
 
 export default router;
