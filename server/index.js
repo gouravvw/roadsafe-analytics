@@ -25,12 +25,13 @@ app.use(cors());
 app.use(express.json());
 
 // Initialize MongoDB database
-if (process.env.MONGO_URI) {
-  mongoose.connect(process.env.MONGO_URI)
+const mongoUri = process.env.MONGO_URI || process.env.MONGO_URL;
+if (mongoUri) {
+  mongoose.connect(mongoUri)
     .then(() => console.log('✅ Connected to MongoDB Atlas successfully!'))
     .catch(err => console.error('❌ Failed to connect to MongoDB:', err));
 } else {
-  console.warn('⚠️ Warning: MONGO_URI is not set in environment variables.');
+  console.warn('⚠️ Warning: Neither MONGO_URI nor MONGO_URL is set in environment variables.');
 }
 
 // Health check endpoint

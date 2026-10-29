@@ -15,6 +15,11 @@
   },
   "dependencies": {
     "@types/leaflet": "^1.9.22",
+    "@types/leaflet.heat": "^0.2.5",
+    "@types/node": "^24.13.3",
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^4.3.4",
     "autoprefixer": "^10.4.20",
     "clsx": "^2.1.1",
     "concurrently": "^10.0.5",
@@ -37,16 +42,14 @@
     "recharts": "^3.10.1",
     "sqlite3": "^6.0.1",
     "tailwind-merge": "^3.6.0",
-    "tailwindcss": "^3.4.17"
-  },
-  "devDependencies": {
-    "@types/leaflet.heat": "^0.2.5",
-    "@types/node": "^24.13.3",
-    "@types/react": "^19.2.17",
-    "@types/react-dom": "^19.2.3",
-    "@vitejs/plugin-react": "^4.3.4",
-    "oxlint": "^1.75.0",
+    "tailwindcss": "^3.4.17",
     "typescript": "~6.0.2",
     "vite": "^5.4.11"
+  },
+  "devDependencies": {
+    "oxlint": "^1.75.0"
+  },
+  "engines": {
+    "node": ">=20.0.0"
   }
 }
