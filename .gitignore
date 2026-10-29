@@ -31,7 +31,8 @@ server/.env
 # Database files
 *.sqlite
 *.db
-data/
+/data/
+!src/data/
 
 # Large CSV files - no need to push to GitHub
 *.csv
